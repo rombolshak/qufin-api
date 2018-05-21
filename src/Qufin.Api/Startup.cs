@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Qufin.Api.Data;
 
 namespace Qufin.Api
 {
+    // ReSharper disable once ClassNeverInstantiated.Global used by ASP
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -18,17 +15,25 @@ namespace Qufin.Api
             Configuration = configuration;
         }
 
+        // ReSharper disable once MemberCanBePrivate.Global used by ASP
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        // ReSharper disable once UnusedMember.Global
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<BudgetContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        // ReSharper disable once UnusedMember.Global
+        public void Configure(
+            IApplicationBuilder app, 
+            IHostingEnvironment env,
+            BudgetContext dbContext)
         {
+            dbContext.Database.Migrate();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
