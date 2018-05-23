@@ -4,6 +4,15 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <ApplicationInsightsResourceId>/subscriptions/055e9e1e-2f4f-47b0-a395-bd4248caad23/resourcegroups/qufin/providers/microsoft.insights/components/qufin-api</ApplicationInsightsResourceId>
     <ApplicationInsightsAnnotationResourceId>/subscriptions/055e9e1e-2f4f-47b0-a395-bd4248caad23/resourcegroups/qufin/providers/microsoft.insights/components/qufin-api</ApplicationInsightsAnnotationResourceId>
+	<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+	<GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+	<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+	<GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+	<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+	<AssemblyVersion>1.1.1.1</AssemblyVersion>
+	<FileVersion>1.1.1.1</FileVersion>
+	<Version>1.1.1</Version>
+	<InformationalVersion>1.1.1+1</InformationalVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -31,5 +40,9 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services" />
   </ItemGroup>
+  
+  <ItemGroup>
+		<Compile Include="..\..\tools\Build\AssemblyInfo.cs" Link="Properties\AssemblyInfo.cs" />
+	</ItemGroup>
 
 </Project>

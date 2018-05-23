@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AnalysisExclusions>
+  <ExcludedIssueTypes>
+    <IssueType Id="HtmlErrors" Justification="Не столь важные ошибки." />		
+    <IssueType Id="XMLErrors"  Justification="Не столь важные ошибки." />
+    <IssueType Id="PrivateFieldCanBeConvertedToLocalVariable" Justification="Не столь важные ошибки." />
+  </ExcludedIssueTypes>
+  <ExcludedProjects>
+    <Project Name="some-project-name" />
+  </ExcludedProjects>
+  <PathsTemplatesForSpecificMessages>
+    <SpecificMessage Message="*">
+      <Path Template="*chart.min.js" Justification="Тут подключается стороняя библиотека Chart.js"/>
+      <Path Template="*/Migrations/*" Justification="EF Auto generated migrations" />
+    </SpecificMessage>
+  </PathsTemplatesForSpecificMessages>
+</AnalysisExclusions>
