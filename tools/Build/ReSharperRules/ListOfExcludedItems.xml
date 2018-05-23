@@ -11,7 +11,7 @@
   <PathsTemplatesForSpecificMessages>
     <SpecificMessage Message="*">
       <Path Template="*chart.min.js" Justification="Тут подключается стороняя библиотека Chart.js"/>
-      <Path Template="*/Migrations/*" Justification="EF Auto generated migrations" />
+      <Path Template="*\Migrations\*" Justification="EF Auto generated migrations" />
     </SpecificMessage>
   </PathsTemplatesForSpecificMessages>
 </AnalysisExclusions>

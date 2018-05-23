@@ -9,10 +9,13 @@ namespace Qufin.Api.Data
         {
         }
 
+        // ReSharper disable once UnusedMember.Global IN DEV
         public DbSet<Account> Accounts { get; set; }
 
+        // ReSharper disable once UnusedMember.Global IN DEV
         public DbSet<BudgetCategory> Categories { get; set; }
 
+        // ReSharper disable once UnusedMember.Global IN DEV
         public DbSet<Transaction> Transactions { get; set; }
     }
 }
