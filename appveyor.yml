@@ -22,6 +22,7 @@ cache:
   - C:\ProgramData\chocolatey\lib -> appveyor.yml
   - C:\ProgramData\chocolatey\bin -> appveyor.yml
   - C:\Users\appveyor\.nuget\packages -> *.csproj
+  - C:\Users\appveyor\.sonar\cache
   
 install:
   - choco install gitversion.portable -pre -y
