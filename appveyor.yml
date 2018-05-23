@@ -54,4 +54,4 @@ after_test:
   - MSBuild.SonarQube.Runner.exe end /d:sonar.login=%sonar_login%
   
 artifacts:
-  - path: bin\Release
+  - path: bin\Release\netcoreapp2.0\
