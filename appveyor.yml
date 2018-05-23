@@ -35,7 +35,7 @@ install:
 
 before_build:
   - ps: dotnet restore src\$env:PRODUCT_NAME.sln
-  - MSBuild.SonarQube.Runner.exe begin /k:"%PRODUCT_NAME%" /d:sonar.organization:"rombolshak-github" /n:"%PRODUCT_NAME%" /v:"%APPVEYOR_BUILD_VERSION%" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="%sonar_login%"
+  - SonarQube.Scanner.MSBuild.exe begin /k:"%PRODUCT_NAME%" /d:sonar.organization="rombolshak-github" /n:"%PRODUCT_NAME%" /v:"%APPVEYOR_BUILD_VERSION%" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="%sonar_login%"
 
 build_script:
   - ps: dotnet build src\$env:PRODUCT_NAME.sln
