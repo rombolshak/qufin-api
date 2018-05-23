@@ -2,13 +2,13 @@ configuration: Release
 image: Visual Studio 2017
 
 environment:
-  PRODUCT_NAME: RombSkeleton
+  PRODUCT_NAME: qufin-api
   sonar_login:
-    secure: nIiH+lXeg922jNjQpH5/II8CoHZHxNXM0DpNvrybMKYBttnzdb+HBpUpIwB705Tq
+    secure: tJk16EF+JLZI8i3oxJO1/zX/TP15Yd0bo0hgUGJrhAhQyKiU19aFMZx14vloWU0g
   secret_for_snk:
     secure: 9wAuC5ZEdGrfCqltk4Ax6Q==
   COVERALLS_REPO_TOKEN:
-    secure: C5rzrcxa1tpwN/APHa/93zFZpxAtnj0aol81DhY0w78cyn+Aj1kUIMbwSAG6B+jx
+    secure: 76mzKeyvLbYy67jTHw4n8mvd5iKrkm+6u5GSqoZLKQHQ3zIAd1oxenl78I0w/xL0
 
 dotnet_csproj:
   patch: true
@@ -35,7 +35,7 @@ install:
 
 before_build:
   - ps: dotnet restore src\$env:PRODUCT_NAME.sln
-  - MSBuild.SonarQube.Runner.exe begin /k:"%PRODUCT_NAME%" /o:"rombolshak-github" /n:"%PRODUCT_NAME%" /v:"%APPVEYOR_BUILD_VERSION%" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="%sonar_login%"
+  - MSBuild.SonarQube.Runner.exe begin /k:"%PRODUCT_NAME%" /d:sonar.organization:"rombolshak-github" /n:"%PRODUCT_NAME%" /v:"%APPVEYOR_BUILD_VERSION%" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="%sonar_login%"
 
 build_script:
   - ps: dotnet build src\$env:PRODUCT_NAME.sln
