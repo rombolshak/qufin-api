@@ -6,7 +6,6 @@
     <FileVersion>1.1.1.1</FileVersion>
     <Version>1.1.1</Version>
     <InformationalVersion>1.1.1+1</InformationalVersion>
-    <AssemblyName>RombSkeleton.Tests</AssemblyName>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>

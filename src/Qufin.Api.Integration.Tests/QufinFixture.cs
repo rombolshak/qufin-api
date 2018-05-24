@@ -10,7 +10,7 @@ namespace Qufin.Api.Integration.Tests
         public QufinFixture()
         {
             var builder = new WebHostBuilder()
-                          .UseEnvironment("Develop")
+                          .UseEnvironment("Development")
                           .UseStartup(typeof(Startup));
 
             var server = new TestServer(builder);

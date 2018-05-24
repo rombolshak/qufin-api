@@ -3,3 +3,4 @@ $tests = gci -Path "$sciptDirectory\..\src" -Filter "*Tests.csproj" -Recurse |% 
 Write-Host These projects contains tests: $tests
 # & "$env:xunit20\xunit.console" $tests -xml $sciptDirectory\..\TestResult.xml -appveyor
 $tests |% { dotnet test $_ --no-build -l "trx;LogFileName=$sciptDirectory\..\tests\$_.trx" }
+exit $LastExitCode 
