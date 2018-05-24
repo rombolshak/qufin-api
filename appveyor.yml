@@ -51,7 +51,7 @@ test_script:
   
 after_test:
   - coveralls.net\tools\csmacnz.Coveralls.exe --opencover -i .\TestResult.xml
-  - MSBuild.SonarQube.Runner.exe end /d:sonar.login=%sonar_login%
+  - SonarQube.Scanner.MSBuild.exe end /d:sonar.login=%sonar_login%
   
 artifacts:
   - path: bin\Release\netcoreapp2.0\
