@@ -11,7 +11,8 @@ namespace Qufin.Api.Tests
         {
             var controller = new HealthController();
             var result = controller.Ping();
-            Assert.Equal(typeof(OkResult), result.GetType());
+            Assert.Equal(true, result is StatusCodeResult);
+            Assert.Equal(200, ((StatusCodeResult)result).StatusCode);
         }
 
         [Fact]
