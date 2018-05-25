@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 
@@ -9,7 +10,8 @@ namespace Qufin.Api.Integration.Tests
     {
         public QufinFixture()
         {
-            var builder = new WebHostBuilder()
+
+            var builder = WebHost.CreateDefaultBuilder()
                           .UseEnvironment("Development")
                           .UseStartup(typeof(Startup));
 
