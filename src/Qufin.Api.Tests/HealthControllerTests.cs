@@ -14,13 +14,5 @@ namespace Qufin.Api.Tests
             Assert.Equal(true, result is StatusCodeResult);
             Assert.Equal(200, ((StatusCodeResult)result).StatusCode);
         }
-
-        [Fact]
-        public void TestApiVersion()
-        {
-            var controller = new HealthController();
-            var result = controller.AppVersion();
-            Assert.Equal(typeof(OkResult), result.GetType());
-        }
     }
 }
