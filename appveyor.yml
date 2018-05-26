@@ -55,3 +55,4 @@ after_test:
   
 artifacts:
   - path: bin\Release\netcoreapp2.0\
+  - path: .\TestResult.xml
