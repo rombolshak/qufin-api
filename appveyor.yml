@@ -36,7 +36,7 @@ install:
 
 before_build:
   - ps: dotnet restore src\$env:PRODUCT_NAME.sln
-  - SonarQube.Scanner.MSBuild.exe begin /k:"%PRODUCT_NAME%" /d:sonar.organization="rombolshak-github" /n:"%PRODUCT_NAME%" /v:"%APPVEYOR_BUILD_VERSION%" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="%sonar_login%"
+  - SonarScanner.MSBuild.exe begin /k:"%PRODUCT_NAME%" /d:sonar.organization="rombolshak-github" /n:"%PRODUCT_NAME%" /v:"%APPVEYOR_BUILD_VERSION%" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.login="%sonar_login%"
 
 build_script:
   - ps: dotnet build src\$env:PRODUCT_NAME.sln
@@ -51,7 +51,7 @@ test_script:
   
 after_test:
   - coveralls.net\tools\csmacnz.Coveralls.exe --opencover -i .\TestResult.xml
-  - SonarQube.Scanner.MSBuild.exe end /d:sonar.login=%sonar_login%
+  - SonarScanner.MSBuild.exe end /d:sonar.login=%sonar_login%
   
 artifacts:
   - path: bin\Release\netcoreapp2.0\
