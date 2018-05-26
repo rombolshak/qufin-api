@@ -47,8 +47,7 @@ after_build:
   - ps: tools\Build\ReSharperRules\ProblemsChecker.ps1 -pathToFilteredXml tools\Build\ReSharperRules\FilteredListOfIssues.xml
 
 test_script:
-  - OpenCover\tools\OpenCover.Console.exe -target:powershell.exe -targetargs:"%APPVEYOR_BUILD_FOLDER%\tools\unit_test.ps1" -filter:"+[*]* -[*Tests]*" -register:user -returntargetcode -output:.\UnitTestResults.xml -oldStyle -searchdirs:APPVEYOR_BUILD_FOLDER\bin\Release\netcoreapp2.0
-  - OpenCover\tools\OpenCover.Console.exe -target:powershell.exe -targetargs:"%APPVEYOR_BUILD_FOLDER%\tools\unit_test.ps1 -integration" -filter:"+[*]* -[*Tests]*" -register:user -returntargetcode -output:.\IntegrationTestResults.xml -oldStyle -searchdirs:APPVEYOR_BUILD_FOLDER\bin\Release\netcoreapp2.0
+  - OpenCover\tools\OpenCover.Console.exe -target:powershell.exe -targetargs:"%APPVEYOR_BUILD_FOLDER%\tools\unit_test.ps1" -filter:"+[*]* -[*Tests]*" -register:user -returntargetcode -output:.\TestResults.xml -oldStyle -searchdirs:APPVEYOR_BUILD_FOLDER\bin\Release\netcoreapp2.0
   
 after_test:
   - coveralls.net\tools\csmacnz.Coveralls.exe --opencover -i .\TestResult.xml
@@ -56,4 +55,4 @@ after_test:
   
 artifacts:
   - path: bin\Release\netcoreapp2.0\
-  - path: '*TestResult.xml'
+  - path: 'TestResult.xml'
