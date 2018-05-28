@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -36,7 +35,6 @@ namespace Qufin.Api
             services.AddApiVersioning(
                 options =>
                 {
-                    options.DefaultApiVersion = new ApiVersion(2, 0);
                     options.ReportApiVersions = true;
                 });
             services.AddSwaggerGen(
