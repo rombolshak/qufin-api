@@ -54,5 +54,17 @@ after_test:
   - SonarScanner.MSBuild.exe end /d:sonar.login=%sonar_login%
   
 artifacts:
-  - path: bin\Release\netcoreapp2.0\
-  - path: 'TestResult.xml'
+  - path: bin\Release\netcoreapp2.0\*
+    name: distr
+deploy:
+  - provider: FTP
+    host: waws-prod-am2-149.ftp.azurewebsites.windows.net
+    protocol: ftps
+    username: qufin-api\qufin-deployment
+    password:
+      secure: dnK+fMunKze1T5KxBBveRw==
+    folder: site\wwwroot
+    application: distr
+    active_mode: false
+    on:
+      branch: master
