@@ -54,7 +54,7 @@ after_test:
   - SonarScanner.MSBuild.exe end /d:sonar.login=%sonar_login%
   
 artifacts:
-  - path: bin\Release\netcoreapp2.0\*
+  - path: bin\Release\netcoreapp2.0\
     name: distr
 deploy:
   - provider: FTP
