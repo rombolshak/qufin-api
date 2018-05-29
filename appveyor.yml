@@ -57,14 +57,10 @@ artifacts:
   - path: bin\Release\netcoreapp2.0\
     name: distr
 deploy:
-  - provider: FTP
-    host: waws-prod-am2-149.ftp.azurewebsites.windows.net
-    protocol: ftps
+  - provider: AzureAppServiceZipDeploy
     username: qufin-api\qufin-deployment
     password:
       secure: dnK+fMunKze1T5KxBBveRw==
-    folder: site\wwwroot
-    application: distr
-    active_mode: false
+    artifact: distr
     on:
       branch: master
