@@ -59,7 +59,7 @@ artifacts:
 deploy:
   - provider: AzureAppServiceZipDeploy
     website: qufin-api
-    username: qufin-api\qufin-deployment
+    username: qufin-deployment
     password:
       secure: dnK+fMunKze1T5KxBBveRw==
     artifact: distr
