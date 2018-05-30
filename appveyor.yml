@@ -3,6 +3,7 @@ image: Visual Studio 2017
 
 environment:
   PRODUCT_NAME: qufin-api
+  PUBLISHING_PROJECT: Qufin.Api
   sonar_login:
     secure: tJk16EF+JLZI8i3oxJO1/zX/TP15Yd0bo0hgUGJrhAhQyKiU19aFMZx14vloWU0g
   secret_for_snk:
@@ -52,9 +53,10 @@ test_script:
 after_test:
   - coveralls.net\tools\csmacnz.Coveralls.exe --opencover -i .\TestResults.xml
   - SonarScanner.MSBuild.exe end /d:sonar.login=%sonar_login%
+  - dotnet publish src\$env:PUBLISHING_PROJECT\$env:PUBLISHING_PROJECT.csproj -c Release
   
 artifacts:
-  - path: bin\Release\netcoreapp2.0\
+  - path: bin\Release\netcoreapp2.0\publish
     name: distr
 deploy:
   - provider: AzureAppServiceZipDeploy
