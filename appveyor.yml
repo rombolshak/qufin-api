@@ -53,7 +53,7 @@ test_script:
 after_test:
   - coveralls.net\tools\csmacnz.Coveralls.exe --opencover -i .\TestResults.xml
   - SonarScanner.MSBuild.exe end /d:sonar.login=%sonar_login%
-  - dotnet publish src\$env:PUBLISHING_PROJECT\$env:PUBLISHING_PROJECT.csproj -c Release
+  - ps: dotnet publish src\$env:PUBLISHING_PROJECT\$env:PUBLISHING_PROJECT.csproj -c Release
   
 artifacts:
   - path: bin\Release\netcoreapp2.0\publish
