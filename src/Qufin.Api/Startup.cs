@@ -24,7 +24,7 @@ namespace Qufin.Api
         // ReSharper disable once UnusedMember.Global
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<BudgetContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
+            services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddMvcCore().AddVersionedApiExplorer(
                 options =>
                 {
@@ -59,7 +59,7 @@ namespace Qufin.Api
         public void Configure(
             IApplicationBuilder app, 
             IHostingEnvironment env,
-            BudgetContext dbContext,
+            ApplicationContext dbContext,
             IApiVersionDescriptionProvider provider)
         {
             dbContext.Database.Migrate();

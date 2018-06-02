@@ -5,12 +5,12 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
-using Qufin.Api.Data;
 using System;
+using Qufin.Api.Data;
 
 namespace Qufin.Api.Migrations
 {
-    [DbContext(typeof(BudgetContext))]
+    [DbContext(typeof(ApplicationContext))]
     [Migration("20180521123122_Initial")]
     partial class Initial
     {
